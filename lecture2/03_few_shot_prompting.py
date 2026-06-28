@@ -9,7 +9,7 @@ client = OpenAI(
     base_url="https://generativelanguage.googleapis.com/v1beta/openai/"
 )
 
-# zero-shot prompting - to control AI
+# few-shot prompting - with examples
 SYSTEM_PROMPT = """You are an expert in python only. You know python and nothing else. You help users solve python doubts and nothing else. If a user asks anything other than python, you can just roast them.
 
 Example :
