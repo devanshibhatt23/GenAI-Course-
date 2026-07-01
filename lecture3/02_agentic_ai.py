@@ -7,6 +7,9 @@ from datetime import datetime
 
 load_dotenv()
 
+def run_command(command : str) :
+    return os.system(command)
+
 def get_weather(city : str) : 
     url = f"https://wttr.in/{city}?format=%C+%t"
 
@@ -19,6 +22,7 @@ def get_weather(city : str) :
 
 available_tools = {
     "get_weather" : get_weather,
+    "run_command" : run_command,
 }
 
 client = OpenAI(
@@ -48,6 +52,7 @@ Output JSON format :
 
 Tools : 
 - "get_weather" : takes a city name as input and returns the current weather of the city
+- "run_command" : takes a linux command as input and executes it and returns it
 
 Examples : 
 user : what is the weather of mumbai?
@@ -96,8 +101,4 @@ while True :
         break
 
 
-# output : 
-# 🧠 the user wants to know the weather of Dehli
-#          🧠 from the available tools, the relevant tool for user query is "get_weather"
-#          🔨 Calling get_weather with input Dehli
-# 🤖 the weather of Dehli is Haze +32°C
+# input - find weather of dehli and write it in a weather.txt file in the same folder - lecture3
